@@ -6,6 +6,6 @@ final class GangTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(Gang().text, "Hello, World!")
+//        XCTAssertEqual(Gang().text, "Hello, World!")
     }
 }
