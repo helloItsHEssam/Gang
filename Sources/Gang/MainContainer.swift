@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MainContainer.swift
 //  
 //
 //  Created by Hessam Mahdiabadi on 1/23/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MainContainer {
+final class MainContainer {
     
     static private(set) var shared = MainContainer()
     

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Provides.swift
 //  
 //
 //  Created by Hessam Mahdiabadi on 1/23/23.
@@ -14,7 +14,7 @@ struct Provides<T: Any> {
     init(data: () -> Provide) {
         let objc = data()
         guard objc is T else {
-            fatalError("mismacheable type")
+            fatalError("oops!, your data does not conform Provide protocol.")
         }
         
         self.wrappedValue = objc as! T

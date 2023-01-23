@@ -1,5 +1,5 @@
-protocol Initializable {
+public protocol Initializable {
     init()
 }
 
-protocol Provide {}
+public protocol Provide {}
