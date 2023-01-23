@@ -1,6 +1,5 @@
-public struct Gang {
-    public private(set) var text = "Hello, World!"
-
-    public init() {
-    }
+protocol Initializable {
+    init()
 }
+
+protocol Provide {}
