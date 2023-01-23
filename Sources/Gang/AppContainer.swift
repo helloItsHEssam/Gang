@@ -11,7 +11,7 @@ import Foundation
 struct AppContainer<T: Any> {
     var wrappedValue: T
 
-    init(type: Initializable.Type) throws {
+    init(type: Initializable.Type) {
         let objc = type.init()
         guard objc is T else {
             
