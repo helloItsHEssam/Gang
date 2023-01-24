@@ -11,7 +11,7 @@ import Foundation
 public struct Provides<T: Any> {
     public var wrappedValue: T
 
-    init(data: () -> Provide) {
+    public init(data: () -> Provide) {
         let objc = data()
         guard objc is T else {
             fatalError("oops!, your data does not conform Provide protocol.")

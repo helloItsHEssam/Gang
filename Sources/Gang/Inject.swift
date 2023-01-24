@@ -11,7 +11,7 @@ import Foundation
 public struct Inject<T> {
     public var wrappedValue: T
 
-    init() {
+    public init() {
         self.wrappedValue = MainContainer.shared.resolve()
     }
 }
