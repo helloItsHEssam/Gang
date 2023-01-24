@@ -8,8 +8,8 @@
 import Foundation
 
 @propertyWrapper
-struct AppContainer<T: Any> {
-    var wrappedValue: T
+public struct AppContainer<T: Any> {
+    public var wrappedValue: T
 
     init(type: Initializable.Type) {
         let objc = type.init()

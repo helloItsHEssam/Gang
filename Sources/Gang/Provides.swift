@@ -8,8 +8,8 @@
 import Foundation
 
 @propertyWrapper
-struct Provides<T: Any> {
-    var wrappedValue: T
+public struct Provides<T: Any> {
+    public var wrappedValue: T
 
     init(data: () -> Provide) {
         let objc = data()
