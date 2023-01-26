@@ -9,16 +9,15 @@ import Foundation
 
 @propertyWrapper
 public struct Binds<T: Any> {
-    public var wrappedValue: T
+    public var wrappedValue: T!
 
-    public init(type: Initializable.Type) {
-        let objc = type.init()
-        guard objc is T else {
-            fatalError("oops!, your data does not implement Initializable protocol.")
+    public init(impl: Initializable.Type) {
+        let objc = impl.init()
+        guard let castObjc = objc as? T else {
+            return
         }
-        
-        self.wrappedValue = objc as! T
-        
-        MainContainer.shared.register(dependency: self.wrappedValue, key: String(describing: T.self))
+
+        self.wrappedValue = castObjc        
+        MainContainer.shared.register(dependency: self.wrappedValue!, key: String(describing: T.self))
     }
 }

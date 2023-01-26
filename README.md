@@ -34,9 +34,9 @@ I try for the below items to be complete until March 2023.
  
  ## License:
  
- Gang is available under the MIT license. See the LICENSE file for more info.
+ Gang is available under the MIT license, You can see the LICENSE file for more info.
  
  
 ## Contributing:
 
- I love contributions from everyone. By participating in this project.
+ I love contributions from everyone By participating in this project.

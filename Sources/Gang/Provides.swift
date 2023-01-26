@@ -9,16 +9,16 @@ import Foundation
 
 @propertyWrapper
 public struct Provides<T: Any> {
-    public var wrappedValue: T
+    public var wrappedValue: T!
 
     public init(data: () -> Provide) {
         let objc = data()
-        guard objc is T else {
-            fatalError("oops!, your data does not conform Provide protocol.")
+        guard let castObjc = objc as? T else {
+            return
         }
         
-        self.wrappedValue = objc as! T
+        self.wrappedValue = castObjc
                 
-        MainContainer.shared.register(dependency: self.wrappedValue, key: String(describing: T.self))
+        MainContainer.shared.register(dependency: self.wrappedValue!, key: String(describing: T.self))
     }
 }
