@@ -8,8 +8,8 @@
 import Foundation
 @testable import Gang
 
-struct DIContainer: Initializable {
+final class DIContainer: Initializable, Container {
     init() {}
 
-    @Binds(impl: BindsRepositoryImpl.self) var bindRepository: BindsRepository!
+    @Binds(impl: BindsRepositoryImpl.self) var bindRepository: BindsRepository
 }

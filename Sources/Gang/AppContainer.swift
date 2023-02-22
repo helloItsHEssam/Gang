@@ -8,7 +8,7 @@
 import Foundation
 
 @propertyWrapper
-public struct AppContainer<T: Initializable> {
+public struct AppContainer<T: Initializable & Container> {
     public var wrappedValue: T
 
     public init(impl: T.Type) {

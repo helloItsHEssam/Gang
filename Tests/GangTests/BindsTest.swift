@@ -8,7 +8,7 @@
 import XCTest
 @testable import Gang
 
-final class BindsTest: XCTestCase {
+final class BindsTest: XCTestCase, Container {
 
     struct BindsRepositoryImpl2: Initializable {}
 
@@ -28,7 +28,15 @@ final class BindsTest: XCTestCase {
     }
 
     func testCheckFailBinds() {
-        XCTAssertNil(bindsRepos2)
+        expectFatalError(expectedMessage:
+                            "We can not find your object to use. you probably made a mistake in your Binds annotation mark.")
+        { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
+            XCTAssertNil(self.bindsRepos2)
+        }
     }
 
 }
