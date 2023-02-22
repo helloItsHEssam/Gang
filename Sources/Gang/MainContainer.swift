@@ -16,19 +16,24 @@ final class MainContainer {
     public init() {
         self.dependencies = [:]
     }
+
+    final func allKeys() -> [String] {
+        return dependencies.map {
+            $0.key
+        }
+    }
     
     final func register(dependency object: Any, key: String) {
         self.dependencies[key] = object
     }
 
-    final func remove(dependency object: Any, key: String) {
+    final func remove(key: String) {
         self.dependencies.removeValue(forKey: key)
     }
     
-    final func resolve<T>() -> T {
-        let key = String(describing: T.self)
+    final func resolve<T>(key: String) throws -> T {
         guard let dependency = dependencies[key] as? T else {
-            fatalError("unfortunately, we did not find your need object with \(key) :(")
+            throw GangError.cannotFindYourDependency
         }
         
         return dependency

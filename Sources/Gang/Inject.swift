@@ -9,9 +9,9 @@ import Foundation
 
 @propertyWrapper
 public struct Inject<T> {
-    public var wrappedValue: T
+    public var wrappedValue: T!
 
     public init() {
-        self.wrappedValue = MainContainer.shared.resolve()
+        self.wrappedValue = try? MainContainer.shared.resolve(key: String(describing: T.self))
     }
 }

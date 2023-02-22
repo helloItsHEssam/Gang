@@ -8,16 +8,10 @@
 import Foundation
 
 @propertyWrapper
-public struct AppContainer<T: Any> {
+public struct AppContainer<T: Initializable & Container> {
     public var wrappedValue: T
 
-    public init(type: Initializable.Type) {
-        let objc = type.init()
-        guard objc is T else {
-            
-            fatalError("oops!, your data does not implement Initializable protocol.")
-        }
-        
-        self.wrappedValue = objc as! T
+    public init(impl: T.Type) {
+        self.wrappedValue = impl.init()
     }
 }
